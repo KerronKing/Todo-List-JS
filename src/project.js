@@ -1,12 +1,14 @@
 const projectMethods = (() => {
-  const projectsArray = [];
-  const returned = JSON.parse(window.localStorage.getItem('Stored-Projects'));
+  const projectsArray = window.localStorage.getItem('projects')
+    ? JSON.parse(window.localStorage.getItem('projects')) : [];
+
+  // window.localStorage.setItem('projects', JSON.stringify(projectsArray));
 
   const Project = (title) => ({ title });
 
   const addToArray = (title) => {
     projectsArray.unshift(Project(title));
-    window.localStorage.setItem('Stored-Projects', JSON.stringify(projectsArray));
+    window.localStorage.setItem('projects', JSON.stringify(projectsArray));
   };
   const render = (array) => {
     array.forEach(item => {
@@ -35,10 +37,11 @@ const projectMethods = (() => {
     projectBtn.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(projectForm));
+      console.log(`${data.title}`);
       addToArray(data.title);
       createForm.innerHTML = '';
     });
   };
-  return { returned, render, projectSubmission };
+  return { projectsArray, render, projectSubmission };
 })();
 export default projectMethods;
