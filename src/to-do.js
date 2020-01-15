@@ -1,10 +1,7 @@
-const listGen = (() => {
-  const project = (title) => {
-    return { title };
-  }
+const todoListMethods = (() => {
   const toDo = (title, description, dateCreated, dateDue, priority) => {
     return { title, description, dateCreated, dateDue, priority };
   }
-  return { project, toDo };
+  return { toDo };
 })();
-export default listGen;
+export default todoListMethods;

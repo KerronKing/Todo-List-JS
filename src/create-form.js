@@ -1,10 +1,12 @@
 const form = (() => {
   const newProject = () => {
     const createForm = document.getElementById('create-form');
+    createForm.innerHTML = '';
     const projectTitleInputForm = document.createElement('FORM');
+    projectTitleInputForm.id = 'project-form';
 
     const projectTitleInput = document.createElement('INPUT');
-    projectTitleInput.setAttribute('name', 'project-title');
+    projectTitleInput.setAttribute('name', 'title');
     projectTitleInputForm.appendChild(projectTitleInput);
 
     const newProjectBtn = document.createElement('BUTTON');
@@ -15,9 +17,9 @@ const form = (() => {
 
     createForm.appendChild(projectTitleInputForm);
   };
-
   const newToDo = () => {
     const createForm = document.getElementById('create-form');
+    createForm.innerHTML = '';
     const inputForm = document.createElement('FORM');
     createForm.appendChild(inputForm);
 
@@ -49,9 +51,9 @@ const form = (() => {
       createForm.classList.remove('hidden');
       createForm.classList.add('visible');
       newProject();
+      projectBtn.removeEventListener('click', popUp, false);
     });
   };
   return { newProject, newToDo, popUp };
 })();
-
 export default form;
