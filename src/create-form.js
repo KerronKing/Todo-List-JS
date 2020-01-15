@@ -2,15 +2,18 @@ const form = (() => {
   const newProject = () => {
     const createForm = document.getElementById('create-form');
     const projectTitleInputForm = document.createElement('FORM');
-    createForm.appendChild(projectTitleInputForm);
 
     const projectTitleInput = document.createElement('INPUT');
     projectTitleInput.setAttribute('name', 'project-title');
     projectTitleInputForm.appendChild(projectTitleInput);
 
     const newProjectBtn = document.createElement('BUTTON');
+    newProjectBtn.textContent = 'Create';
+    newProjectBtn.id = 'project-btn';
     newProjectBtn.setAttribute('type', 'submit');
     projectTitleInputForm.appendChild(newProjectBtn);
+
+    createForm.appendChild(projectTitleInputForm);
   };
 
   const newToDo = () => {
@@ -38,7 +41,17 @@ const form = (() => {
     inputForm.appendChild(priorityInput);
     priorityInput.setAttribute('type', 'radio');
   }
-  return { newProject, newToDo };
+  const popUp = () => {
+    const projectBtn = document.getElementById('new-project');
+    const createForm = document.getElementById('create-form');
+    projectBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      createForm.classList.remove('hidden');
+      createForm.classList.add('visible');
+      newProject();
+    });
+  };
+  return { newProject, newToDo, popUp };
 })();
 
 export default form;
