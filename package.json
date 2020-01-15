@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/KerronKing/Todo-List-JS#readme",
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }
