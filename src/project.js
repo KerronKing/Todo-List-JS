@@ -1,12 +1,12 @@
 const projectMethods = (() => {
   const projectsArray = [];
-  const returned = projectsArray.concat(JSON.parse(window.localStorage.getItem('Stored-Projects')));
+  const returned = JSON.parse(window.localStorage.getItem('Stored-Projects'));
 
   const Project = (title) => ({ title });
 
   const addToArray = (title) => {
     projectsArray.unshift(Project(title));
-    window.localStorage.setItem('Stored-Projects', JSON.stringify(returned));
+    window.localStorage.setItem('Stored-Projects', JSON.stringify(projectsArray));
   };
   const render = (array) => {
     array.forEach(item => {
