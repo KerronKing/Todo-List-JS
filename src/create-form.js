@@ -22,11 +22,6 @@ const createForm = (() => {
   const priorityInput = document.createElement('INPUT');
   inputForm.appendChild(priorityInput);
   priorityInput.setAttribute('type', 'radio');
-
-  const projectBtn = document.getElementById('new-project');
-  projectBtn.addEventListener('click', () => {
-    form.classList.remove('hidden');
-    form.classList.add('visible');
   })
 });
 
