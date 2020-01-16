@@ -10,4 +10,3 @@ const projectArea = document.getElementById('projects');
 if (projectArea.innerHTML != '') {
   projectMethods.projectSubmission();
 }
-
