@@ -39,6 +39,8 @@ const todoListMethods = (() => {
       dateDue.textContent = `${item.dateDue}`;
       div.appendChild(dateDue);
 
+      console.log(addToDoArray);
+
       if(item.priority.value) == 'high'
         toDoArea.classList.add('red');
       if(item.priority.value) == 'medium'
@@ -47,6 +49,6 @@ const todoListMethods = (() => {
         toDoArea.classList.add('green');
     };
 
-  return {  };
+  return { render, toDoArray };
 })();
 export default todoListMethods;
