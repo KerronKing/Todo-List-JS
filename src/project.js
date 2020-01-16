@@ -5,7 +5,7 @@ const projectMethods = (() => {
   //   ? JSON.parse(window.localStorage.getItem('projects')) : [];
   //
   // window.localStorage.setItem('projects', JSON.stringify(projectsArray));
-  const projectsArray = [{ title: '' }];
+  const projectsArray = [{ title: 'Sample-Project' }];
 
   const Project = (title) => ({ title });
 
@@ -27,16 +27,17 @@ const projectMethods = (() => {
 
       const todo = document.createElement('BUTTON');
       todo.classList.add('list-entry-btn');
+      todo.textContent = '+';
       div.appendChild(todo);
 
       const deleteBtn = document.createElement('BUTTON');
       deleteBtn.classList.add('delete-entry');
+      deleteBtn.textContent = 'Delete';
       div.appendChild(deleteBtn);
     })
   };
   const projectSubmission = () => {
     const newProjectBtn = document.getElementById('new-project');
-    const submitProjectBtn = document.getElementById('submit-project');
     const projectForm = document.forms['project-form'];
     const createForm = document.getElementById('create-form');
 
