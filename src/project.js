@@ -1,15 +1,19 @@
-const projectMethods = (() => {
-  const projectsArray = window.localStorage.getItem('projects')
-    ? JSON.parse(window.localStorage.getItem('projects')) : [];
+import form from './create-form';
 
+const projectMethods = (() => {
+  // const projectsArray = window.localStorage.getItem('projects')
+  //   ? JSON.parse(window.localStorage.getItem('projects')) : [];
+  //
   // window.localStorage.setItem('projects', JSON.stringify(projectsArray));
+  const projectsArray = [{ title: '' }];
 
   const Project = (title) => ({ title });
 
   const addToArray = (title) => {
     projectsArray.unshift(Project(title));
-    window.localStorage.setItem('projects', JSON.stringify(projectsArray));
+    // window.localStorage.setItem('projects', JSON.stringify(projectsArray));
   };
+
   const render = (array) => {
     array.forEach(item => {
       const projectArea = document.getElementById('projects');
@@ -31,15 +35,21 @@ const projectMethods = (() => {
     })
   };
   const projectSubmission = () => {
-    const projectBtn = document.getElementById('project-btn');
-    const projectForm = document.getElementById('project-form');
+    const newProjectBtn = document.getElementById('new-project');
+    const submitProjectBtn = document.getElementById('submit-project');
+    const projectForm = document.forms['project-form'];
     const createForm = document.getElementById('create-form');
-    projectBtn.addEventListener('submit', (e) => {
+
+    projectForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(projectForm));
       console.log(`${data.title}`);
+      console.log(data);
       addToArray(data.title);
-      createForm.innerHTML = '';
+      createForm.classList.remove('visible');
+      createForm.classList.add('hidden');
+      newProjectBtn.addEventListener('click', form.popUp(), false);
+      projectForm.reset();
     });
   };
   return { projectsArray, render, projectSubmission };
