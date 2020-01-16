@@ -1,9 +1,8 @@
 const form = (() => {
   const newToDo = () => {
-    const createForm = document.getElementById('create-form');
-    createForm.innerHTML = '';
+    const todo = document.getElementById('todo-form');
+    todo.innerHTML = '';
     const inputForm = document.createElement('FORM');
-    createForm.appendChild(inputForm);
 
     const titleInput = document.createElement('INPUT');
     inputForm.appendChild(titleInput);
@@ -24,6 +23,8 @@ const form = (() => {
     const priorityInput = document.createElement('INPUT');
     inputForm.appendChild(priorityInput);
     priorityInput.setAttribute('type', 'radio');
+
+    todo.appendChild(inputForm);
   }
   const popUp = () => {
     const projectBtn = document.getElementById('new-project');

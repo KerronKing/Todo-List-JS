@@ -3,9 +3,6 @@ const projectsArray = window.localStorage.getItem('projects')
 ? JSON.parse(window.localStorage.getItem('projects')) : [{ title: 'Sample-Project-1' }];
 
 const projectMethods = (() => {
-  // const projectsArray = window.localStorage.getItem('projects')
-  //   ? JSON.parse(window.localStorage.getItem('projects')) : [];
-
   const Project = (title) => ({ title });
 
   const addToArray = (title) => {
@@ -51,6 +48,27 @@ const projectMethods = (() => {
       projectForm.reset();
     });
   };
-  return { render, projectSubmission };
+  const listBtnListeners = () => {
+    const list = document.querySelectorAll('.list-entry-btn');
+    const todoForm = document.getElementById('todo-form');
+    list.forEach((item) => {
+      if (todoForm.classList.contains('hidden')) {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          form.newToDo();
+          todoForm.classList.remove('hidden');
+          todoForm.classList.add('visible');
+        })
+      } 
+      if (todoForm.classList.contains('visible')) {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          todoForm.classList.remove('visible');
+          todoForm.classList.add('hidden');
+        })
+      }
+    })
+  }
+  return { render, projectSubmission, listBtnListeners };
 })();
 export { projectMethods, projectsArray };

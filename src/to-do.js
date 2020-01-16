@@ -1,7 +1,7 @@
 const todoListMethods = (() => {
-  const toDo = (title, description, dateCreated, dateDue, priority) => {
+  const Todo = (title, description, dateCreated, dateDue, priority) => {
     return { title, description, dateCreated, dateDue, priority };
   }
-  return { toDo };
+  return {  };
 })();
 export default todoListMethods;

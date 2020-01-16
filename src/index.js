@@ -6,3 +6,4 @@ form.popUp();
 projectMethods.projectSubmission();
 console.log(projectsArray);
 projectMethods.render(projectsArray);
+projectMethods.listBtnListeners();
