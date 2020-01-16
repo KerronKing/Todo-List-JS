@@ -18,7 +18,19 @@
       <button id="submit-project" type="submit">Submit Project</button>
     </form>
   </div>
-  <div id="todo-form"></div>
+  <div id="todo-entry" class="hidden">
+    <form id="todo-form">
+      <input name="title" class="todo-input" placeholder="Enter item title">
+      <input name="description" type="textarea" class="todo-input" placeholder="Enter item title">
+      <input name="dateCreated" class="todo-input" placeholder="Enter item title">
+      <input name="dateDue" class="todo-input" placeholder="Enter item title">
+      <select name="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </form>
+  </div>
 
   <div id="projects"></div>
   <script src="main.js"></script>
