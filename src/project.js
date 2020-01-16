@@ -1,11 +1,10 @@
 import form from './create-form';
-const projectsArray = [{ title: 'Sample-Project-1' }];
+const projectsArray = window.localStorage.getItem('projects')
+? JSON.parse(window.localStorage.getItem('projects')) : [{ title: 'Sample-Project-1' }];
 
 const projectMethods = (() => {
   // const projectsArray = window.localStorage.getItem('projects')
   //   ? JSON.parse(window.localStorage.getItem('projects')) : [];
-  //
-  // window.localStorage.setItem('projects', JSON.stringify(projectsArray));
 
   const Project = (title) => ({ title });
 
@@ -47,6 +46,7 @@ const projectMethods = (() => {
       addToArray(data.title);
       createForm.classList.remove('visible');
       createForm.classList.add('hidden');
+      document.location.reload();
       newProjectBtn.addEventListener('click', form.popUp(), false);
       projectForm.reset();
     });
