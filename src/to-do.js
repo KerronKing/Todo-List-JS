@@ -9,7 +9,7 @@ const todoListMethods = (() => {
   }
 
   const addToDoArray = (title, description, dateCreated,dateDue, priority) => {
-    toDoArray.unshift(Todo(title, description, dateCreated,dateDue, priority));
+    toDoArray.push(Todo(title, description, dateCreated,dateDue, priority));
     window.localStorage.setItem('todo', JSON.stringify(toDoArray));
   };
 
@@ -72,7 +72,6 @@ const todoListMethods = (() => {
       todoForm.reset();
     });
   }
-
   return { render, formListener, toDoArray };
 })();
 export { todoListMethods, toDoArray };

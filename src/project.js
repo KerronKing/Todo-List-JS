@@ -6,24 +6,24 @@ const projectMethods = (() => {
   const Project = (title) => ({ title });
 
   const addToArray = (title) => {
-    projectsArray.unshift(Project(title));
+    projectsArray.push(Project(title));
     window.localStorage.setItem('projects', JSON.stringify(projectsArray));
   };
 
   const render = (array) => {
-    array.forEach(item => {
+    for (let i = array.length - 1; i >= 0; i--) {
       const projectArea = document.getElementById('projects');
       const div = document.createElement('DIV');
       div.classList.add('project-entry');
-      div.id = `${item.title}`;
+      div.id = `${array[i].title}`;
 
       const title = document.createElement('P');
-      title.textContent = `${item.title}`;
+      title.textContent = `${array[i].title}`;
       div.appendChild(title);
 
       const todo = document.createElement('BUTTON');
       todo.classList.add('list-entry-btn');
-      todo.setAttribute('value', `${item.title}`);
+      todo.setAttribute('value', `${array[i].title}`);
       todo.textContent = '+';
       div.appendChild(todo);
 
@@ -34,14 +34,13 @@ const projectMethods = (() => {
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
-        // const deleteItem = JSON.parse(window.localStorage.getItem('projects'))
-        // console.log(deleteItem);
-        // deleteItem.splice(i, 1);
-        // window.localStorage.setItem('projects', JSON.stringify(deleteItem));
+        const deleteItem = JSON.parse(window.localStorage.getItem('projects'))
+        console.log(deleteItem);
+        deleteItem.splice(i, 1);
+        window.localStorage.setItem('projects', JSON.stringify(deleteItem));
       })
-})
       projectArea.appendChild(div);
-    })
+    }
   };
   const projectSubmission = () => {
     const newProjectBtn = document.getElementById('new-project');
