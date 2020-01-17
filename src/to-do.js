@@ -14,9 +14,10 @@ const todoListMethods = (() => {
   };
 
   const render = (array) => {
-    array.forEach(item => {
+    array.forEach((item, i) => {
       const project = document.getElementById(`${item.project}`);
       const div = document.createElement('DIV');
+      div.id = `todo-${i}`;
 
       const title = document.createElement('P');
       title.textContent = `${item.title}`;
@@ -33,6 +34,11 @@ const todoListMethods = (() => {
       const dateDue = document.createElement('P');
       dateDue.textContent = `${item.dateDue}`;
       div.appendChild(dateDue);
+
+      const deleteBtn = document.createElement('BUTTON');
+      deleteBtn.classList.add('delete-todo');
+      deleteBtn.textContent = 'Delete';
+      div.appendChild(deleteBtn);
       project.appendChild(div);
     })
   }
@@ -42,6 +48,7 @@ const todoListMethods = (() => {
     //   toDoArea.classList.add('yellow');
     // if(item.priority.value) == 'medium'
     //   toDoArea.classList.add('green');
+
 
   const formListener = () => {
     const todoForm = document.getElementById('todo-form');
@@ -57,6 +64,18 @@ const todoListMethods = (() => {
       todoForm.reset();
     });
   }
-  return { render, formListener, toDoArray };
+
+  // const deleteBtnListener = () => {
+  //   const deleteBtn = document.querySelectorAll('.delete-todo');
+  //   const toDoArea = document.getElementById('todo-area');
+  //   const project = document.getElementById(`${item.project}`);
+  //   deleteBtn.forEach((item) => {
+  //     item.addEventListener('click', (e) => {
+  //       project.removeChild(toDoArea);
+  //     })
+  //   });
+  // }
+
+  return { render, formListener, toDoArray, deleteBtnListener };
 })();
 export { todoListMethods, toDoArray };

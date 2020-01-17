@@ -13,5 +13,6 @@ projectMethods.listBtnListeners();
 
 todoListMethods.formListener();
 todoListMethods.render(toDoArray);
+// todoListMethods.deleteBtnListener();
 
 console.log(toDoArray);
