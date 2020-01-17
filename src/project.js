@@ -50,6 +50,7 @@ const projectMethods = (() => {
       projectForm.reset();
     });
   };
+  
   const listBtnListeners = () => {
     const list = document.querySelectorAll('.list-entry-btn');
     const todoEntry = document.getElementById('todo-entry');

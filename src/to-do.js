@@ -42,6 +42,10 @@ const todoListMethods = (() => {
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
+        const deleteItem = JSON.parse(window.localStorage.getItem('todo'))
+        console.log(deleteItem);
+        deleteItem.splice(i, 1);
+        window.localStorage.setItem('todo', JSON.stringify(deleteItem));
       })
       project.appendChild(div);
     })
