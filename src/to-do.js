@@ -39,6 +39,10 @@ const todoListMethods = (() => {
       deleteBtn.classList.add('delete-todo');
       deleteBtn.textContent = 'Delete';
       div.appendChild(deleteBtn);
+      deleteBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        deleteBtn.parentElement.remove();
+      })
       project.appendChild(div);
     })
   }
@@ -65,17 +69,6 @@ const todoListMethods = (() => {
     });
   }
 
-  // const deleteBtnListener = () => {
-  //   const deleteBtn = document.querySelectorAll('.delete-todo');
-  //   const toDoArea = document.getElementById('todo-area');
-  //   const project = document.getElementById(`${item.project}`);
-  //   deleteBtn.forEach((item) => {
-  //     item.addEventListener('click', (e) => {
-  //       project.removeChild(toDoArea);
-  //     })
-  //   });
-  // }
-
-  return { render, formListener, toDoArray, deleteBtnListener };
+  return { render, formListener, toDoArray };
 })();
 export { todoListMethods, toDoArray };
