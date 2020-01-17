@@ -15,6 +15,7 @@ const projectMethods = (() => {
       const projectArea = document.getElementById('projects');
       const div = document.createElement('DIV');
       div.classList.add('project-entry');
+      div.id = `${item.title}`;
 
       const title = document.createElement('P');
       title.textContent = `${item.title}`;

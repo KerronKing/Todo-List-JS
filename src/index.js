@@ -7,9 +7,11 @@ import './styles.css';
 form.popUp();
 projectMethods.projectSubmission();
 console.log(projectsArray);
+
 projectMethods.render(projectsArray);
 projectMethods.listBtnListeners();
+
 todoListMethods.formListener();
-// todoListMethods.render(toDoArray);
+todoListMethods.render(toDoArray);
 
 console.log(toDoArray);

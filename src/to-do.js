@@ -15,7 +15,7 @@ const todoListMethods = (() => {
 
   const render = (array) => {
     array.forEach(item => {
-      // const toDoArea = document.getElementById('todo');
+      const project = document.getElementById(`${item.project}`);
       const div = document.createElement('DIV');
 
       const title = document.createElement('P');
@@ -33,6 +33,7 @@ const todoListMethods = (() => {
       const dateDue = document.createElement('P');
       dateDue.textContent = `${item.dateDue}`;
       div.appendChild(dateDue);
+      project.appendChild(div);
     })
   }
     // if(item.priority.value) == 'high'
