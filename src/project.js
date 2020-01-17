@@ -34,11 +34,14 @@ const projectMethods = (() => {
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
-        const deleteItem = JSON.parse(window.localStorage.getItem('projects'))
-        console.log(deleteItem);
+        const deleteItem = JSON.parse(window.localStorage.getItem('projects'));
         deleteItem.splice(i, 1);
         window.localStorage.setItem('projects', JSON.stringify(deleteItem));
-      })
+
+        const todos = JSON.parse(window.localStorage.getItem('todo'));
+        const newList = todos.filter((todo) => todo.project != `${array[i].title}`);
+        window.localStorage.setItem('todo', JSON.stringify(newList));
+        });
       projectArea.appendChild(div);
     }
   };
