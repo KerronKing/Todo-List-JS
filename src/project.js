@@ -62,6 +62,7 @@ const projectMethods = (() => {
           const hiddenInput = document.createElement('INPUT');
           hiddenInput.setAttribute('type', 'hidden');
           hiddenInput.setAttribute('value', `${item.value}`);
+          hiddenInput.setAttribute('name', 'project');
           todoForm.appendChild(hiddenInput);
         } else {
           todoEntry.classList.remove('visible');

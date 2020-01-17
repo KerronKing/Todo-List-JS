@@ -3,8 +3,10 @@ const toDoArray = window.localStorage.getItem('todo')
 
 const todoListMethods = (() => {
 
-  const Todo = (title, description, dateCreated, dateDue, priority) =>
-  ({ title, description, dateCreated, dateDue, priority });
+  const Todo = (title, description, dateDue, priority, project) => {
+    const dateCreated = Date.now();
+    return { title, description, dateCreated, dateDue, priority, project };
+  }
 
   const addToDoArray = (title, description, dateCreated,dateDue, priority) => {
     toDoArray.unshift(Todo(title, description, dateCreated,dateDue, priority));
@@ -46,9 +48,9 @@ const todoListMethods = (() => {
     todoForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(todoForm));
-      addToDoArray(data.title, data.description, data.dateCreated,
-        data.dateDue, data.priority);
-      console.log(data);
+      addToDoArray(data.title, data.description, data.dateDue, data.priority, data.project);
+      console.log(toDoArray);
+      document.location.reload();
       todoEntry.classList.remove('visible');
       todoEntry.classList.add('hidden');
       todoForm.reset();
