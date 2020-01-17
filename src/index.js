@@ -8,4 +8,6 @@ projectMethods.projectSubmission();
 console.log(projectsArray);
 projectMethods.render(projectsArray);
 projectMethods.listBtnListeners();
-todoListMethods.render(toDoArray);
+// todoListMethods.render(toDoArray);
+
+console.log(toDoArray);

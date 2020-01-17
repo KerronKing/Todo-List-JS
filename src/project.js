@@ -22,6 +22,7 @@ const projectMethods = (() => {
 
       const todo = document.createElement('BUTTON');
       todo.classList.add('list-entry-btn');
+      todo.setAttribute('value', `${item.title}`);
       todo.textContent = '+';
       div.appendChild(todo);
 
@@ -51,15 +52,21 @@ const projectMethods = (() => {
   const listBtnListeners = () => {
     const list = document.querySelectorAll('.list-entry-btn');
     const todoEntry = document.getElementById('todo-entry');
+    const todoForm = document.getElementById('todo-form');
     list.forEach((item) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         if (todoEntry.classList.contains('hidden')) {
           todoEntry.classList.remove('hidden');
           todoEntry.classList.add('visible');
+          const hiddenInput = document.createElement('INPUT');
+          hiddenInput.setAttribute('type', 'hidden');
+          hiddenInput.setAttribute('value', `${item.value}`);
+          todoForm.appendChild(hiddenInput);
         } else {
           todoEntry.classList.remove('visible');
           todoEntry.classList.add('hidden');
+          todoForm.removeChild(todoForm.lastChild);
         }
       });
     });
