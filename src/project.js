@@ -31,6 +31,15 @@ const projectMethods = (() => {
       deleteBtn.classList.add('delete-entry');
       deleteBtn.textContent = 'Delete';
       div.appendChild(deleteBtn);
+      deleteBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        deleteBtn.parentElement.remove();
+        // const deleteItem = JSON.parse(window.localStorage.getItem('projects'))
+        // console.log(deleteItem);
+        // deleteItem.splice(i, 1);
+        // window.localStorage.setItem('projects', JSON.stringify(deleteItem));
+      })
+})
       projectArea.appendChild(div);
     })
   };
@@ -50,7 +59,7 @@ const projectMethods = (() => {
       projectForm.reset();
     });
   };
-  
+
   const listBtnListeners = () => {
     const list = document.querySelectorAll('.list-entry-btn');
     const todoEntry = document.getElementById('todo-entry');
