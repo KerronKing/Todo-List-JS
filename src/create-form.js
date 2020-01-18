@@ -4,9 +4,13 @@ const form = (() => {
     const createForm = document.getElementById('create-form');
     projectBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      createForm.classList.remove('hidden');
-      createForm.classList.add('visible');
-      projectBtn.removeEventListener('click', popUp, false);
+      if (createForm.classList.contains('hidden')) {
+        createForm.classList.remove('hidden');
+        createForm.classList.add('visible');
+      } else {
+        createForm.classList.remove('visible');
+        createForm.classList.add('hidden');
+      }
     });
   };
   return { popUp };
