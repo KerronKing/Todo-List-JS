@@ -15,10 +15,20 @@ const projectMethods = (() => {
       const projectArea = document.getElementById('projects');
       const div = document.createElement('DIV');
       div.classList.add('project-entry');
-      div.id = `${array[i].title}`;
 
       const title = document.createElement('P');
       title.textContent = `${array[i].title}`;
+      title.addEventListener('click', (e) => {
+        e.preventDefault();
+        const todos = document.getElementById(`${array[i].title}`);
+        if (todos.classList.contains('hidden')) {
+          todos.classList.remove('hidden');
+          todos.classList.add('visible');
+        } else if (todos.classList.contains('visible')) {
+          todos.classList.remove('visible');
+          todos.classList.add('hidden');
+        }
+      });
       div.appendChild(title);
 
       const todo = document.createElement('BUTTON');
@@ -41,7 +51,11 @@ const projectMethods = (() => {
         const todos = JSON.parse(window.localStorage.getItem('todo'));
         const newList = todos.filter((todo) => todo.project != `${array[i].title}`);
         window.localStorage.setItem('todo', JSON.stringify(newList));
-        });
+      });
+      const todoHolder = document.createElement('DIV');
+      todoHolder.id = `${array[i].title}`;
+      todoHolder.classList.add('hidden');
+      div.appendChild(todoHolder);
       projectArea.appendChild(div);
     }
   };
