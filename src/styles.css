@@ -1,4 +1,8 @@
-.hidden { visibility: hidden; }
+.hidden { 
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
 .visible { visibility: visible; }
 .main {
   border: 1px solid black;
@@ -6,3 +10,6 @@
 .second {
   border: 1px solid red;
 }
+.red-text { color: red; }
+.yellow-text { color: rgba(255, 255, 0, 0.336); }
+.green-text { color: green; }

@@ -25,12 +25,29 @@ const todoListMethods = (() => {
 
       const title = document.createElement('P');
       title.textContent = `${item.title}`;
+      title.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (secondDiv.classList.contains('hidden')) {
+          secondDiv.classList.remove('hidden');
+          secondDiv.classList.add('visible');
+        } else {
+          secondDiv.classList.remove('visible');
+          secondDiv.classList.add('hidden');
+        }
+      });
       mainDiv.appendChild(title);
 
       const priority = document.createElement('P');
       priority.textContent = `${item.priority}`;
+      if (priority.textContent == 'high') {
+        priority.classList.add('red-text');
+      } else if (priority.textContent == 'medium') {
+        priority.classList.add('yellow-text');
+      } else if (priority.textContent == 'low') {
+        priority.classList.add('green-text');
+      }
       mainDiv.appendChild(priority);
-
+      
       const deleteBtn = document.createElement('BUTTON');
       deleteBtn.classList.add('delete-todo');
       deleteBtn.textContent = 'Delete';
@@ -42,8 +59,7 @@ const todoListMethods = (() => {
         console.log(deleteItem);
         deleteItem.splice(i, 1);
         window.localStorage.setItem('todo', JSON.stringify(deleteItem));
-      })
-
+      });
       const description = document.createElement('P');
       description.textContent = `${item.description}`;
       secondDiv.appendChild(description);
@@ -58,16 +74,8 @@ const todoListMethods = (() => {
 
       mainDiv.appendChild(secondDiv);
       project.appendChild(mainDiv);
-    })
-  }
-    // if(item.priority.value) == 'high'
-    //   toDoArea.classList.add('red');
-    // if(item.priority.value) == 'medium'
-    //   toDoArea.classList.add('yellow');
-    // if(item.priority.value) == 'medium'
-    //   toDoArea.classList.add('green');
-
-
+    });
+  };
   const formListener = () => {
     const todoForm = document.getElementById('todo-form');
     const todoEntry = document.getElementById('todo-entry');
@@ -81,7 +89,7 @@ const todoListMethods = (() => {
       todoEntry.classList.add('hidden');
       todoForm.reset();
     });
-  }
+  };
   return { render, formListener, toDoArray };
 })();
 export { todoListMethods, toDoArray };
