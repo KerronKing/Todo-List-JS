@@ -1,2 +1,8 @@
 .hidden { visibility: hidden; }
 .visible { visibility: visible; }
+.main {
+  border: 1px solid black;
+}
+.second {
+  border: 1px solid red;
+}

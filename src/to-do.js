@@ -16,29 +16,25 @@ const todoListMethods = (() => {
   const render = (array) => {
     array.forEach((item, i) => {
       const project = document.getElementById(`${item.project}`);
-      const div = document.createElement('DIV');
-      div.id = `todo-${i}`;
+      const mainDiv = document.createElement('DIV');
+      mainDiv.classList.add('main');
+      mainDiv.id = `todo-${i}`;
+      const secondDiv = document.createElement('DIV');
+      secondDiv.classList.add('hidden');
+      secondDiv.classList.add('second');
 
       const title = document.createElement('P');
       title.textContent = `${item.title}`;
-      div.appendChild(title);
+      mainDiv.appendChild(title);
 
-      const description = document.createElement('P');
-      description.textContent = `${item.description}`;
-      div.appendChild(description);
-
-      const dateCreated = document.createElement('P');
-      dateCreated.textContent = `${item.dateCreated}`;
-      div.appendChild(dateCreated);
-
-      const dateDue = document.createElement('P');
-      dateDue.textContent = `${item.dateDue}`;
-      div.appendChild(dateDue);
+      const priority = document.createElement('P');
+      priority.textContent = `${item.priority}`;
+      mainDiv.appendChild(priority);
 
       const deleteBtn = document.createElement('BUTTON');
       deleteBtn.classList.add('delete-todo');
       deleteBtn.textContent = 'Delete';
-      div.appendChild(deleteBtn);
+      mainDiv.appendChild(deleteBtn);
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
@@ -47,7 +43,21 @@ const todoListMethods = (() => {
         deleteItem.splice(i, 1);
         window.localStorage.setItem('todo', JSON.stringify(deleteItem));
       })
-      project.appendChild(div);
+
+      const description = document.createElement('P');
+      description.textContent = `${item.description}`;
+      secondDiv.appendChild(description);
+
+      const dateCreated = document.createElement('P');
+      dateCreated.textContent = `${item.dateCreated}`;
+      secondDiv.appendChild(dateCreated);
+
+      const dateDue = document.createElement('P');
+      dateDue.textContent = `${item.dateDue}`;
+      secondDiv.appendChild(dateDue);
+
+      mainDiv.appendChild(secondDiv);
+      project.appendChild(mainDiv);
     })
   }
     // if(item.priority.value) == 'high'
