@@ -8,7 +8,7 @@ linters:
 files:
   ignore:
       - 'dist/*'
-      - './src/index.js'
+      - 'index.js'
       - 'webpack.config.js'
 fixers:
     enable: true
