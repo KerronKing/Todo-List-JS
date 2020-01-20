@@ -7,6 +7,6 @@ linters:
 # add the files here you want to be ignored by stylelint
 files:
   ignore:
-      - 'dist'
+      - 'dist/*'
 fixers:
     enable: true

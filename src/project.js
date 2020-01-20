@@ -4,9 +4,7 @@ const projectsArray = window.localStorage.getItem('projects')
   ? JSON.parse(window.localStorage.getItem('projects')) : [{ title: 'Sample-Project-1' }];
 
 const projectMethods = (() => {
-  const Project = (title) => {
-    return { title };
-  };
+  const Project = (title) => ({ title });
 
   const addToArray = (title) => {
     projectsArray.push(Project(title));
