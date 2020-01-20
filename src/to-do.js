@@ -17,27 +17,29 @@ const todoListMethods = (() => {
     array.forEach((item, i) => {
       const project = document.getElementById(`${item.project}`);
       const mainDiv = document.createElement('DIV');
-      mainDiv.classList.add('main');
       mainDiv.id = `todo-${i}`;
       const secondDiv = document.createElement('DIV');
-      secondDiv.classList.add('hidden');
       secondDiv.classList.add('second');
+      const thirdDiv = document.createElement('DIV');
+      thirdDiv.classList.add('hidden');
+      thirdDiv.classList.add('third');
 
       const title = document.createElement('P');
       title.textContent = `${item.title}`;
       title.addEventListener('click', (e) => {
         e.preventDefault();
-        if (secondDiv.classList.contains('hidden')) {
-          secondDiv.classList.remove('hidden');
-          secondDiv.classList.add('visible');
+        if (thirdDiv.classList.contains('hidden')) {
+          thirdDiv.classList.remove('hidden');
+          thirdDiv.classList.add('visible');
         } else {
-          secondDiv.classList.remove('visible');
-          secondDiv.classList.add('hidden');
+          thirdDiv.classList.remove('visible');
+          thirdDiv.classList.add('hidden');
         }
       });
-      mainDiv.appendChild(title);
+      secondDiv.appendChild(title);
 
-      const priority = document.createElement('SPAN');
+      const priority = document.createElement('DIV');
+      priority.classList.add('priority');
       priority.textContent = `${item.priority}`;
       if (priority.textContent == 'high') {
         priority.classList.add('red-text');
@@ -46,12 +48,12 @@ const todoListMethods = (() => {
       } else if (priority.textContent == 'low') {
         priority.classList.add('green-text');
       }
-      mainDiv.appendChild(priority);
+      secondDiv.appendChild(priority);
 
       const deleteBtn = document.createElement('BUTTON');
       deleteBtn.classList.add('delete-todo');
       deleteBtn.textContent = 'Delete';
-      mainDiv.appendChild(deleteBtn);
+      secondDiv.appendChild(deleteBtn);
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
@@ -61,18 +63,19 @@ const todoListMethods = (() => {
         window.localStorage.setItem('todo', JSON.stringify(deleteItem));
       });
       const description = document.createElement('P');
-      description.textContent = `${item.description}`;
-      secondDiv.appendChild(description);
+      description.textContent = `Description: ${item.description}`;
+      thirdDiv.appendChild(description);
 
       const dateCreated = document.createElement('P');
-      dateCreated.textContent = `${item.dateCreated}`;
-      secondDiv.appendChild(dateCreated);
+      dateCreated.textContent = `Date Created: ${item.dateCreated}`;
+      thirdDiv.appendChild(dateCreated);
 
       const dateDue = document.createElement('P');
-      dateDue.textContent = `${item.dateDue}`;
-      secondDiv.appendChild(dateDue);
+      dateDue.textContent = `Date due: ${item.dateDue}`;
+      thirdDiv.appendChild(dateDue);
 
       mainDiv.appendChild(secondDiv);
+      mainDiv.appendChild(thirdDiv);
       project.appendChild(mainDiv);
     });
   };
