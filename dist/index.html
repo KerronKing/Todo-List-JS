@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Todo List</title>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>Todo List App</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Todo List App</h1>
 
-      <form>
-        <button id="new-project">New Project</button>
-      </form>
+        <form>
+          <button id="new-project">New Project</button>
+        </form>
+      </div>
+
+      <div id="create-form" class="hidden">
+        <form id="project-form">
+          <input id="project-input" name="title" minlength="1" maxlength="25" />
+          <button id="submit-project" type="submit">Submit Project</button>
+        </form>
+      </div>
+
+      <div id="todo-entry" class="hidden">
+        <form id="todo-form">
+          <input
+            name="title"
+            class="todo-input"
+            placeholder="Enter item title"
+            minlength="1"
+            maxlength="25"
+          />
+          <input
+            name="description"
+            type="textarea"
+            class="todo-input"
+            placeholder="Enter item description"
+            minlength="1"
+            maxlength="100"
+          />
+          <input
+            name="dateDue"
+            type="date"
+            class="todo-input"
+            placeholder="Enter item due date"
+          /><br>
+          <select name="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select><br>
+          <button id="newToDoSubmit">Submit To-Do Item</button>
+        </form>
+      </div>
+
+      <div id="projects"></div>
     </div>
-    
-    <div id="create-form" class="hidden">
-      <form id="project-form">
-        <input id="project-input" name="title" minlength="1" maxlength="25">
-        <button id="submit-project" type="submit">Submit Project</button>
-      </form>
-    </div>
 
-    <div id="todo-entry" class="hidden">
-      <form id="todo-form">
-        <input name="title" class="todo-input" placeholder="Enter item title" minlength="1" maxlength="25">
-        <input name="description" type="textarea" class="todo-input" placeholder="Enter item description" minlength="1" maxlength="100">
-        <input name="dateDue" type="date" class="todo-input" placeholder="Enter item due date">
-        <select name="priority">
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <button id="newToDoSubmit">Submit To-Do Item</button>
-      </form>
-    </div>
-
-    <div id="projects"></div>
-</div>
-
-  <script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

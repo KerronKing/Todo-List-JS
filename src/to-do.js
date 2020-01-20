@@ -4,7 +4,7 @@ const toDoArray = window.localStorage.getItem('todo')
 const todoListMethods = (() => {
 
   const Todo = (title, description, dateDue, priority, project) => {
-    const dateCreated = Date.now();
+    const dateCreated = new Date().toLocaleDateString();
     return { title, description, dateCreated, dateDue, priority, project };
   }
 

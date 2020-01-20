@@ -34,7 +34,7 @@ const projectMethods = (() => {
       const todo = document.createElement('BUTTON');
       todo.classList.add('list-entry-btn');
       todo.setAttribute('value', `${array[i].title}`);
-      todo.textContent = '+';
+      todo.textContent = 'New to-do';
       div.appendChild(todo);
 
       const deleteBtn = document.createElement('BUTTON');

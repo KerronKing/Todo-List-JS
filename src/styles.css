@@ -45,6 +45,13 @@ select {
   border-style: solid;
 }
 
+#newToDoSubmit {
+  margin-bottom: 1rem;
+  margin-top: 1rem; 
+}
+
+#submit-project { margin-bottom: 1rem; }
+
 #todo-entry {
   display: block;
   width: 30%;
@@ -97,6 +104,15 @@ h1 {
   -moz-box-shadow: 6px 6px 23px -2px rgba(144,182,192,1);
   box-shadow: 6px 6px 23px -2px rgba(144,182,192,1);
 }
+.list-entry-btn {
+  margin-bottom: 1rem;
+  margin-right: 1rem; 
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 .hidden {
   height: 0;
@@ -106,12 +122,17 @@ h1 {
 
 .visible {
   visibility: visible;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: fade;
+  animation-duration: 1s;
+  animation-name: fade;
 }
+
 .third {
-  border: 1px solid red;
   margin: 0 auto;
   width: 93.5%;
 }
+
 .second {
   border: 1px solid black;
   border-radius: 3px;
@@ -121,16 +142,19 @@ h1 {
   padding: 1rem;
   width: 90%;
 }
+
 .second p {
   position: relative;
   left: 1rem;
   width: 2rem;
 }
+
 .second p:hover {
   color: #A4B0D1;
   cursor: pointer;
   font-weight: bold;
 }
+
 .priority {
   display: table-cell;
   height: 1.5rem;
