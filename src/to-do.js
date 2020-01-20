@@ -37,7 +37,7 @@ const todoListMethods = (() => {
       });
       mainDiv.appendChild(title);
 
-      const priority = document.createElement('P');
+      const priority = document.createElement('SPAN');
       priority.textContent = `${item.priority}`;
       if (priority.textContent == 'high') {
         priority.classList.add('red-text');
@@ -47,7 +47,7 @@ const todoListMethods = (() => {
         priority.classList.add('green-text');
       }
       mainDiv.appendChild(priority);
-      
+
       const deleteBtn = document.createElement('BUTTON');
       deleteBtn.classList.add('delete-todo');
       deleteBtn.textContent = 'Delete';

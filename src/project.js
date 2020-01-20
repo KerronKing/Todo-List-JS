@@ -16,7 +16,7 @@ const projectMethods = (() => {
       const div = document.createElement('DIV');
       div.classList.add('project-entry');
 
-      const title = document.createElement('P');
+      const title = document.createElement('H3');
       title.textContent = `${array[i].title}`;
       title.addEventListener('click', (e) => {
         e.preventDefault();

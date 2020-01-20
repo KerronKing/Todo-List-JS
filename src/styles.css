@@ -1,15 +1,106 @@
-.hidden { 
+body {
+  /* display: flex; */
+}
+
+.container {
+  margin: 0 auto;
+  border: 2px solid gray;
+  border-radius: 8px;
+  width: 48vw;
+  text-align: center;
+  padding: 4rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#projects {
+  margin: 0 auto;
+}
+
+#projects h3 {
+  font-size: 30px;
+}
+
+#projects h3:hover {
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hidden {
   height: 0;
   visibility: hidden;
   width: 0;
 }
-.visible { visibility: visible; }
+
+.visible {
+  visibility: visible;
+}
+
 .main {
   border: 1px solid black;
 }
+
 .second {
   border: 1px solid red;
+
 }
-.red-text { color: red; }
-.yellow-text { color: rgba(255, 255, 0, 0.336); }
-.green-text { color: green; }
+
+.main {
+  display: flex;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px;
+  flex-direction: row;
+}
+
+.main p {
+  position: relative;
+  left: 1rem;
+}
+
+.main p:hover {
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main span {
+  left: 15rem;
+  position: relative;
+  justify-content: space-around;
+  margin-right: 30px;
+  text-align: center;
+  float: right;
+  width: 5vw;
+  padding-top: 13px;
+}
+
+.delete-todo {
+  left: 15rem;
+  position: relative;
+}
+
+.red-text {
+  background-color: #FFE8E8;
+  color: red;
+  border: 1px solid red;
+  border-radius: 3px;
+}
+
+.yellow-text {
+  background-color: #FFFFE8;
+  color: #E1E100;
+  border: 1px solid #E1E100;
+  border-radius: 3px;
+}
+
+.green-text {
+  background-color: #E8FFE8;
+  color: green;
+  border: 1px solid green;
+  border-radius: 3px;
+}
