@@ -5,7 +5,7 @@ const todoListMethods = (() => {
   const Todo = (title, description, dateDue, priority, project) => {
     const dateCreated = new Date().toLocaleDateString();
     return {
-      title, description, dateCreated, dateDue, priority, project
+      title, description, dateCreated, dateDue, priority, project,
     };
   };
 
