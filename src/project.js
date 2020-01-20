@@ -1,9 +1,10 @@
 import form from './create-form';
+
 const projectsArray = window.localStorage.getItem('projects')
-? JSON.parse(window.localStorage.getItem('projects')) : [{ title: 'Sample-Project-1' }];
+  ? JSON.parse(window.localStorage.getItem('projects')) : [{ title: 'Sample-Project-1' }];
 
 const projectMethods = (() => {
-  const Project = (title) => ({ title });
+  const Project = (title) => { title };
 
   const addToArray = (title) => {
     projectsArray.push(Project(title));
@@ -11,7 +12,7 @@ const projectMethods = (() => {
   };
 
   const render = (array) => {
-    for (let i = array.length - 1; i >= 0; i--) {
+    for (let i = array.length - 1; i >= 0; i -= 1) {
       const projectArea = document.getElementById('projects');
       const div = document.createElement('DIV');
       div.classList.add('project-entry');
@@ -49,7 +50,7 @@ const projectMethods = (() => {
         window.localStorage.setItem('projects', JSON.stringify(deleteItem));
 
         const todos = JSON.parse(window.localStorage.getItem('todo'));
-        const newList = todos.filter((todo) => todo.project != `${array[i].title}`);
+        const newList = todos.filter(todo => todo.project !== `${array[i].title}`);
         window.localStorage.setItem('todo', JSON.stringify(newList));
       });
       const todoHolder = document.createElement('DIV');

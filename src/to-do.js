@@ -1,15 +1,16 @@
 const toDoArray = window.localStorage.getItem('todo')
-? JSON.parse(window.localStorage.getItem('todo')) : [];
+  ? JSON.parse(window.localStorage.getItem('todo')) : [];
 
 const todoListMethods = (() => {
-
   const Todo = (title, description, dateDue, priority, project) => {
     const dateCreated = new Date().toLocaleDateString();
-    return { title, description, dateCreated, dateDue, priority, project };
-  }
+    return {
+      title, description, dateCreated, dateDue, priority, project
+    };
+  };
 
-  const addToDoArray = (title, description, dateCreated,dateDue, priority) => {
-    toDoArray.push(Todo(title, description, dateCreated,dateDue, priority));
+  const addToDoArray = (title, description, dateCreated, dateDue, priority) => {
+    toDoArray.push(Todo(title, description, dateCreated, dateDue, priority));
     window.localStorage.setItem('todo', JSON.stringify(toDoArray));
   };
 
@@ -41,11 +42,11 @@ const todoListMethods = (() => {
       const priority = document.createElement('DIV');
       priority.classList.add('priority');
       priority.textContent = `${item.priority}`;
-      if (priority.textContent == 'high') {
+      if (priority.textContent === 'high') {
         priority.classList.add('red-text');
-      } else if (priority.textContent == 'medium') {
+      } else if (priority.textContent === 'medium') {
         priority.classList.add('yellow-text');
-      } else if (priority.textContent == 'low') {
+      } else if (priority.textContent === 'low') {
         priority.classList.add('green-text');
       }
       secondDiv.appendChild(priority);
@@ -57,8 +58,7 @@ const todoListMethods = (() => {
       deleteBtn.addEventListener('click', (e) => {
         e.preventDefault();
         deleteBtn.parentElement.remove();
-        const deleteItem = JSON.parse(window.localStorage.getItem('todo'))
-        console.log(deleteItem);
+        const deleteItem = JSON.parse(window.localStorage.getItem('todo'));
         deleteItem.splice(i, 1);
         window.localStorage.setItem('todo', JSON.stringify(deleteItem));
       });
@@ -86,7 +86,6 @@ const todoListMethods = (() => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(todoForm));
       addToDoArray(data.title, data.description, data.dateDue, data.priority, data.project);
-      console.log(toDoArray);
       document.location.reload();
       todoEntry.classList.remove('visible');
       todoEntry.classList.add('hidden');
